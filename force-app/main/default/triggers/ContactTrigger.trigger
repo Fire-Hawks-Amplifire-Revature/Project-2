@@ -2,10 +2,10 @@ trigger ContactTrigger on Contact (before insert, before update, before delete, 
 
     switch on Trigger.operationType {
         when BEFORE_INSERT {
-            
+            new ContactTriggerHelper_EmailSimilarity();
         }
         when BEFORE_UPDATE {
-            
+            new ContactTriggerHelper_EmailSimilarity();
         }
         when BEFORE_DELETE {
             
