@@ -1,0 +1,15 @@
+<apex:page >
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+          Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
+          Link: <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
+          Link: <apex:outputLink value="apex/Create_Products">Create Products</apex:outputLink>
+       </apex:pageBlockSection>
+      </apex:pageBlock>
+
+    <apex:pageBlock >
+    <apex:pageBlockSection >
+        <h1>Orders and Products</h1>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>
