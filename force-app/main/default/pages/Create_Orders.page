@@ -1,15 +1,28 @@
-<apex:page >
+<apex:page standardController="Order" extensions="CreateOrderExtension">
     <apex:pageBlock >
         <apex:pageBlockSection >
-            Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
-            Link: <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
-
+          Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
+          Link: <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
        </apex:pageBlockSection>
     </apex:pageBlock>
 
     <apex:pageBlock >
-        <apex:pageBlockSection >
-            <h1>Create Orders</h1>
-        </apex:pageBlockSection>
+        <h1>Create an Order</h1>
+        
+            <apex:form>
+                <apex:pageBlockSection >
+                    <apex:inputField value="{!order.accountId}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                    <apex:inputField value="{!order.contractId}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                    <apex:inputField value="{!order.effectiveDate}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                    <apex:inputField value="{!order.status}"/>
+                </apex:pageBlockSection>
+                <apex:commandButton value="Create and Add Products" action="{!customSave}"/>
+            </apex:form>
     </apex:pageBlock>
 </apex:page>

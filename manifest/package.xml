@@ -5,6 +5,7 @@
         <!--<members>ContactTriggerHelper_EmailSimilarity</members>-->
         <members>OrdersAndProductsController</members>
         <members>ManageOrdersController</members>
+        <members>CreateOrderExtension</members>
         <name>ApexClass</name>
     </types>
 <!--
