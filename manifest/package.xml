@@ -3,6 +3,8 @@
 
     <types>
         <!--<members>ContactTriggerHelper_EmailSimilarity</members>-->
+        <members>OrdersAndProductsController</members>
+        <members>ManageOrdersController</members>
         <name>ApexClass</name>
     </types>
 <!--
@@ -14,7 +16,7 @@
     <types>
         <members>Orders_and_Products</members>
         <members>Create_Orders</members>
-        <members>Create_Products</members>        
+        <members>Manage_Orders</members>
         <name>ApexPage</name>
     </types>
 <!--

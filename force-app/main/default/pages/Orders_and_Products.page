@@ -1,15 +1,45 @@
-<apex:page >
+<apex:page controller="OrdersAndProductsController" cache="false">
     <apex:pageBlock >
         <apex:pageBlockSection >
           Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
           Link: <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
-          Link: <apex:outputLink value="apex/Create_Products">Create Products</apex:outputLink>
        </apex:pageBlockSection>
       </apex:pageBlock>
 
     <apex:pageBlock >
-    <apex:pageBlockSection >
-        <h1>Orders and Products</h1>
-    </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <h1>Orders</h1>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection id="displayOrders">    
+            <apex:actionRegion>
+            <apex:form>
+                <apex:pageBlockTable value="{!showOrders}" var="order">
+                        <apex:column headerValue="Actions">
+                            <apex:commandLink value="Delete" action="{!deleteOrder}">
+                                <apex:actionSupport event="onclick" reRender="displayOrders"/>
+                                <apex:param value="{!order.Id}" name="orderId"/>
+                            </apex:commandLink>
+                            &nbsp;
+                            <apex:outputLink value="apex/Manage_Orders">
+                                Manage Products
+                                <apex:param value="{!order.Id}" name="orderId"/>
+                            </apex:outputLink>
+                        </apex:column>
+                        <apex:column headerValue="Order Number">
+                            <apex:outputField value="{!order.orderNumber}"/>
+                        </apex:column>
+                        <apex:column headerValue="Order Amount">
+                            <apex:outputField value="{!order.totalAmount}"/>
+                        </apex:column>
+                        <apex:column headerValue="Status">
+                            <apex:outputField value="{!order.status}">
+                                <apex:inlineEditSupport/>
+                            </apex:outputField>
+                        </apex:column>
+                </apex:pageBlockTable>
+            </apex:form>
+            </apex:actionRegion>
+        </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:page>
