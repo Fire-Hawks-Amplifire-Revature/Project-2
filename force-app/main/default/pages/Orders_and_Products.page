@@ -1,4 +1,4 @@
-<apex:page controller="OrdersAndProductsController" cache="false">
+<apex:page controller="OrdersAndProductsController">
     <apex:pageBlock >
         <apex:pageBlockSection >
           Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>

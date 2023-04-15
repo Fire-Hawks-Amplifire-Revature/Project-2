@@ -1,4 +1,4 @@
-<apex:page controller="ManageOrdersController">
+<apex:page standardController="Product2" extensions="ManageOrdersExtension" recordSetVar="products" docType="html-5.0">
     <apex:pageBlock >
         <apex:pageBlockSection >
           Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
@@ -9,9 +9,21 @@
 
 
     <apex:pageBlock >
-        <apex:pageBlockSection >
-            <h1>Manage Orders</h1>
-            Test: {!order.orderNumber}
+        <h1>Manage Orders</h1>
+        <apex:pageBlockSection>
+            <apex:form>
+                <apex:pageBlockTable value="{!productsToAdd}" var="p">
+                    <apex:column>
+                        <apex:outputField value="{!p.product.name}"/>
+                    </apex:column>
+                    <apex:column>
+                        <apex:inputCheckbox value="{!p.add}"/>
+                    </apex:column>
+                    <apex:column>
+                        <apex:input value="{!p.numberToAdd}" type="number"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:form>
         </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:page>
