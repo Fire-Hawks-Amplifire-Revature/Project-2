@@ -16,8 +16,21 @@ public with sharing class ManageOrdersExtension {
         }
     }
 
+    public void resetUpdateFields(List<Product2> rProducts){
+        for(Product2 p : rProducts){
+            //reset order update fields
+            p.number_to_add__c = null;
+            p.add_to_order__c = false;
+        }
+    }
 
     public void addProducts(){
-        System.debug(controller.getRecords()[0]);
+        List<Product2> productsList = controller.getRecords();
+        for(Product2 p : productsList){
+            if(p.add_to_order__c){
+                System.debug('Add ' + p.number_to_add__c + 'x \"' + p.name + '\" to Order');
+            }
+        }
+        resetUpdateFields(productsList);
     }
 }
