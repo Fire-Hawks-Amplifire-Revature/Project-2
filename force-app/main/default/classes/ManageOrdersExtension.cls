@@ -34,18 +34,6 @@ public with sharing class ManageOrdersExtension {
         //add an error here if the order doesn't have an associated pricebook yet
         pricebookEntries = [SELECT Id, pricebook2Id, product2Id FROM PricebookEntry WHERE pricebook2Id=:order.pricebook2Id];
 
-        // for(Product2 p : productsList){
-        //     if(p.add_to_order__c){
-        //         for(PricebookEntry pE : pricebookEntries){
-        //             System.debug('Price Book Entry - Product Id: ' + pE.product2Id);
-        //             System.debug('Product List Product - Id: ' + p.Id);
-        //             if(pE.product2Id == p.Id){
-        //                 orderProductsToAdd.add(new OrderItem(orderId=orderId, product2Id=p.Id, quantity=p.number_to_add__c, unitPrice=10, pricebookEntryId=pE.Id));
-        //             }
-        //         }
-        //     }
-        // }
-
         for(Product2 p : productsList){
             if(p.add_to_order__c){
                 for(PricebookEntry pE : pricebookEntries){
@@ -57,6 +45,7 @@ public with sharing class ManageOrdersExtension {
         }
         System.debug('orderProductsToAdd:' + orderProductsToAdd);
         Database.insert(orderProductsToAdd);
+        orderProductsToAdd = new List<OrderItem>();
         
         resetUpdateFields(productsList);
     }
