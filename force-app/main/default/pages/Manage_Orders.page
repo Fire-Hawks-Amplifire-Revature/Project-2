@@ -12,20 +12,32 @@
         <h1>Manage Orders:</h1>
         <p>{!order.orderNumber}</p>
         <apex:pageBlockSection>
-            <apex:form>
-                <apex:pageBlockTable value="{!products}" var="p">
-                    <apex:column headerValue="Product">
-                        <apex:outputField value="{!p.name}"/>
-                    </apex:column>
-                    <apex:column headerValue="Add to Order">
-                        <apex:inputField value="{!p.add_to_order__c}"/>
-                    </apex:column>
-                    <apex:column headerValue="Quantity">
-                        <apex:inputField value="{!p.number_to_add__c}"/>
-                    </apex:column>
-                </apex:pageBlockTable>
-                <apex:commandButton value="Add to Order" action="{!addProducts}"/>
-            </apex:form>
+            <h2>Current Order</h2>
+            <apex:pageBlockTable value="{!order}" var="o">
+                <apex:column value="{!o.orderNumber}"/>
+                <apex:column value="{!o.account.name}"/>
+                <apex:column value="{!o.totalAmount}"/>
+                <apex:column value="{!o.contract.contractNumber}"/>
+                <apex:column value="{!o.effectiveDate}"/>
+                <apex:column value="{!o.status}"/>
+            </apex:pageBlockTable>         
         </apex:pageBlockSection>
+        <apex:pageBlockSection>
+            <h2>Add/Remove Products</h2>
+                <apex:form>
+                    <apex:pageBlockTable value="{!products}" var="p">
+                        <apex:column headerValue="Product">
+                            <apex:outputField value="{!p.name}"/>
+                        </apex:column>
+                        <apex:column headerValue="Add to Order">
+                            <apex:inputField value="{!p.add_to_order__c}"/>
+                        </apex:column>
+                        <apex:column headerValue="Quantity">
+                            <apex:inputField value="{!p.number_to_add__c}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                    <apex:commandButton value="Add to Order" action="{!addProducts}"/>
+                </apex:form>
+            </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:page>

@@ -15,7 +15,7 @@ public with sharing class ManageOrdersExtension {
         productsList = controller.getRecords();
         pricebookEntries = new List<PricebookEntry>();
 
-        order = [SELECT orderNumber, pricebook2Id FROM Order WHERE Id = :orderId];
+        order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId];
 
         oldOrderProducts = [SELECT product2.name, quantity FROM OrderItem WHERE orderId = :orderId];
 
