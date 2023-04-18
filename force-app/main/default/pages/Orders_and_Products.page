@@ -11,35 +11,31 @@
             <h1>Orders</h1>
         </apex:pageBlockSection>
 
-        <apex:pageBlockSection id="displayOrders">    
-            <apex:actionRegion>
-            <apex:form>
-                <apex:pageBlockTable value="{!showOrders}" var="order">
-                        <apex:column headerValue="Actions">
-                            <apex:commandLink value="Delete" action="{!deleteOrder}">
-                                <apex:actionSupport event="onclick" reRender="displayOrders"/>
-                                <apex:param value="{!order.Id}" name="orderId"/>
-                            </apex:commandLink>
-                            &nbsp;
-                            <apex:outputLink value="apex/Manage_Orders">
-                                Manage Products
-                                <apex:param value="{!order.Id}" name="orderId"/>
-                            </apex:outputLink>
-                        </apex:column>
-                        <apex:column headerValue="Order Number">
-                            <apex:outputField value="{!order.orderNumber}"/>
-                        </apex:column>
-                        <apex:column headerValue="Order Amount">
-                            <apex:outputField value="{!order.totalAmount}"/>
-                        </apex:column>
-                        <apex:column headerValue="Status">
-                            <apex:outputField value="{!order.status}">
-                                <apex:inlineEditSupport/>
-                            </apex:outputField>
-                        </apex:column>
-                </apex:pageBlockTable>
+        
+            <apex:pageBlockSection>    
+                <apex:form>
+                    
+                    <apex:pageBlockTable value="{!showOrders}" var="order" id="displayOrders">
+                            <apex:column headerValue="Actions">
+                                <apex:commandLink value="Delete" action="{!deleteOrder}">
+                                    <apex:actionSupport event="onclick" reRender="displayOrders"/>
+                                    <apex:param value="{!order.Id}" name="orderId"/>
+                                </apex:commandLink>
+                                &nbsp;
+                                <apex:outputLink value="apex/Manage_Orders">
+                                    Manage Products
+                                    <apex:param value="{!order.Id}" name="orderId"/>
+                                </apex:outputLink>
+                            </apex:column>
+                            <apex:column headerValue="Order Number" value="{!order.orderNumber}"/>
+                            <apex:column headerValue="Amount" value="{!order.totalAmount}"/>
+                            <apex:column headerValue="Status">
+                                <apex:outputField value="{!order.status}">
+                                    <apex:inlineEditSupport/>
+                                </apex:outputField>
+                            </apex:column>
+                    </apex:pageBlockTable>
             </apex:form>
-            </apex:actionRegion>
-        </apex:pageBlockSection>
+            </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:page>

@@ -11,7 +11,6 @@ public with sharing class ManageOrdersExtension {
     public ManageOrdersExtension(ApexPages.StandardSetController ssc) {
         controller = ssc;
         orderId = apexpages.currentpage().getparameters().get('orderId');
-        System.debug('orderId: ' + orderId);
         orderProductsToAdd = new List<OrderItem>();
         productsList = controller.getRecords();
         pricebookEntries = new List<PricebookEntry>();
@@ -32,7 +31,6 @@ public with sharing class ManageOrdersExtension {
 
     public void addProducts(){
         productsList = controller.getRecords();
-        //add an error here if the order doesn't have an associated pricebook yet
         pricebookEntries = [SELECT Id, pricebook2Id, product2Id FROM PricebookEntry WHERE pricebook2Id=:order.pricebook2Id];
 
         for(Product2 p : productsList){
