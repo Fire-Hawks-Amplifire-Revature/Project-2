@@ -22,6 +22,9 @@
                 <apex:pageBlockSection >
                     <apex:inputField value="{!order.status}"/>
                 </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                    <apex:inputField value="{!order.pricebook2Id}"/>
+                </apex:pageBlockSection>
                 <apex:commandButton value="Create and Add Products" action="{!customSave}"/>
             </apex:form>
     </apex:pageBlock>

@@ -9,7 +9,8 @@
 
 
     <apex:pageBlock >
-        <h1>Manage Orders</h1>
+        <h1>Manage Orders:</h1>
+        <p>{!order.orderNumber}</p>
         <apex:pageBlockSection>
             <apex:form>
                 <apex:pageBlockTable value="{!products}" var="p">
