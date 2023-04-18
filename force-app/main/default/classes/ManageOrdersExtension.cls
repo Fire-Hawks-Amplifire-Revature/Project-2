@@ -11,6 +11,7 @@ public with sharing class ManageOrdersExtension {
     public ManageOrdersExtension(ApexPages.StandardSetController ssc) {
         controller = ssc;
         orderId = apexpages.currentpage().getparameters().get('orderId');
+        System.debug('orderId: ' + orderId);
         orderProductsToAdd = new List<OrderItem>();
         productsList = controller.getRecords();
         pricebookEntries = new List<PricebookEntry>();
@@ -43,7 +44,6 @@ public with sharing class ManageOrdersExtension {
                 }
             }
         }
-        System.debug('orderProductsToAdd:' + orderProductsToAdd);
         Database.insert(orderProductsToAdd);
         orderProductsToAdd = new List<OrderItem>();
         
