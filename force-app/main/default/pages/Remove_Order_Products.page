@@ -37,7 +37,7 @@
         </apex:pageBlockSection>
     </apex:pageBlock>
     <apex:pageBlock>
-        <apex:outputLink value="apex/Manage_Orders">
+        <apex:outputLink value="apex/Add_Order_Products">
         Add Products
         <apex:param value="{!order.Id}" name="orderId"/>
     </apex:outputLink>

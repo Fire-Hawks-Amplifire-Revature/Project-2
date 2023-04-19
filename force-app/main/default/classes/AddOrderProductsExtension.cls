@@ -1,4 +1,4 @@
-public with sharing class ManageOrdersExtension {
+public with sharing class AddOrderProductsExtension {
     public String orderId{get; private set;}
     public Order order{get; private set;}
     public List<OrderItem> oldOrderProducts{get; private set;}
@@ -8,7 +8,7 @@ public with sharing class ManageOrdersExtension {
 
     private ApexPages.StandardSetController controller;
 
-    public ManageOrdersExtension(ApexPages.StandardSetController ssc) {
+    public AddOrderProductsExtension(ApexPages.StandardSetController ssc) {
         controller = ssc;
         orderId = apexpages.currentpage().getparameters().get('orderId');
         orderProductsToAdd = new List<OrderItem>();

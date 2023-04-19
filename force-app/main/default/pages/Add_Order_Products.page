@@ -1,4 +1,4 @@
-<apex:page standardController="Product2" extensions="ManageOrdersExtension" recordSetVar="products">
+<apex:page standardController="Product2" extensions="AddOrderProductsExtension" recordSetVar="products">
     <apex:pageBlock >
         <apex:pageBlockSection >
           Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>

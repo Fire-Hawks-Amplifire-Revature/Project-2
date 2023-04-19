@@ -21,7 +21,7 @@
                                     <apex:param value="{!order.Id}" name="orderId"/>
                                 </apex:commandLink>
                                 &nbsp;
-                                <apex:outputLink value="apex/Manage_Orders">
+                                <apex:outputLink value="apex/Add_Order_Products">
                                     Manage Products
                                     <apex:param value="{!order.Id}" name="orderId"/>
                                 </apex:outputLink>

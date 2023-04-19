@@ -11,7 +11,7 @@ public with sharing class CreateOrderExtension {
         insert this.order;
         System.debug('Test 1: ' + this.order.Id);
 
-        PageReference pR = Page.Manage_Orders;
+        PageReference pR = Page.Add_Order_Products;
         pR.getParameters().put('orderid', this.order.Id);
 
         return pR;
