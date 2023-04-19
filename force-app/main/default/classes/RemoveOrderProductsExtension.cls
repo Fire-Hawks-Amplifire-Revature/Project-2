@@ -17,7 +17,6 @@ public with sharing class RemoveOrderProductsExtension {
     public void removeProducts(){
         for(OrderItem oi : oldOrderProducts){
             if(oi.do_update_order__c == true){
-                System.debug('Product to Remove: ' + oi.Product2.name);
                 orderProductsToDelete.add(oi);
             }
         }

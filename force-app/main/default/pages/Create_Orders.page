@@ -11,19 +11,19 @@
         
             <apex:form>
                 <apex:pageBlockSection >
-                    <apex:inputField value="{!order.accountId}"/>
+                    <apex:inputField value="{!order.accountId}" required="true"/>
                 </apex:pageBlockSection>
                 <apex:pageBlockSection >
-                    <apex:inputField value="{!order.contractId}"/>
+                    <apex:inputField value="{!order.contractId}" required="true"/>
                 </apex:pageBlockSection>
                 <apex:pageBlockSection >
-                    <apex:inputField value="{!order.effectiveDate}"/>
+                    <apex:inputField value="{!order.effectiveDate}" required="true"/>
                 </apex:pageBlockSection>
                 <apex:pageBlockSection >
-                    <apex:inputField value="{!order.status}"/>
+                    <apex:inputField value="{!order.status}" required="true"/>
                 </apex:pageBlockSection>
-                <apex:pageBlockSection >
-                    <apex:inputField value="{!order.pricebook2Id}"/>
+                <apex:pageBlockSection>
+                    <apex:inputField value="{!order.pricebook2Id}" required="true"/>
                 </apex:pageBlockSection>
                 <apex:commandButton value="Create and Add Products" action="{!customSave}"/>
             </apex:form>
