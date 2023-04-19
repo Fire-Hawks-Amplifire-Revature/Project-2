@@ -25,8 +25,8 @@
         </apex:pageBlockSection>
 
         <apex:pageBlockSection>
-            <h2>Current Products</h2>
             <apex:form>
+                <h2>Current Products</h2>
                 <apex:pageBlockTable value="{!oldOrderProducts}" var="oop" id="oldOrderProducts">
                     <apex:column value="{!oop.Product2.name}"/>
                     <apex:column headerValue="Remove Line Item">
@@ -35,7 +35,14 @@
                     <apex:column value="{!oop.quantity}"/>
                     <apex:column value="{!oop.PricebookEntry.unitPrice}"/>
                 </apex:pageBlockTable>
+                <apex:commandButton value="Remove Line Items" action="{!removeProducts}"/>
             </apex:form>
         </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:pageBlock>
+        <apex:outputLink value="apex/Manage_Orders">
+        Add Products
+        <apex:param value="{!order.Id}" name="orderId"/>
+    </apex:outputLink>
     </apex:pageBlock>
 </apex:page>
