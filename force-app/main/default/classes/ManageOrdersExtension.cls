@@ -17,7 +17,7 @@ public with sharing class ManageOrdersExtension {
 
         order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId];
 
-        oldOrderProducts = [SELECT product2.name, quantity FROM OrderItem WHERE orderId = :orderId];
+        oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId];
 
         controller.setPageSize(30);
     }
@@ -25,7 +25,7 @@ public with sharing class ManageOrdersExtension {
     public void resetUpdateFields(List<Product2> rProducts){
         for(Product2 p : rProducts){
             p.number_to_add__c = null;
-            p.add_to_order__c = false;
+            p.do_update_order__c = false;
         }
     }
 
@@ -34,7 +34,7 @@ public with sharing class ManageOrdersExtension {
         pricebookEntries = [SELECT Id, pricebook2Id, product2Id FROM PricebookEntry WHERE pricebook2Id=:order.pricebook2Id];
 
         for(Product2 p : productsList){
-            if(p.add_to_order__c){
+            if(p.do_update_order__c){
                 for(PricebookEntry pE : pricebookEntries){
                     if(pE.product2Id == p.Id){
                         orderProductsToAdd.add(new OrderItem(orderId=orderId, product2Id=p.Id, quantity=p.number_to_add__c, unitPrice=10, pricebookEntryId=pE.Id));
@@ -46,5 +46,6 @@ public with sharing class ManageOrdersExtension {
         orderProductsToAdd = new List<OrderItem>();
         
         resetUpdateFields(productsList);
+        oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId];
     }
 }

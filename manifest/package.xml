@@ -5,6 +5,7 @@
         <members>OrdersAndProductsController</members>
         <members>ManageOrdersExtension</members>
         <members>CreateOrderExtension</members>
+        <members>RemoveOrderProductsExtension</members>
         <name>ApexClass</name>
     </types>
 <!--
@@ -17,6 +18,7 @@
         <members>Orders_and_Products</members>
         <members>Create_Orders</members>
         <members>Manage_Orders</members>
+        <members>Remove_Order_Products</members>
         <name>ApexPage</name>
     </types>
 <!--
