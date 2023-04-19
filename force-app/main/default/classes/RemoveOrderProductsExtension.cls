@@ -24,5 +24,6 @@ public with sharing class RemoveOrderProductsExtension {
         delete orderProductsToDelete;
         orderProductsToDelete = new List<OrderItem>();
         oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c, PricebookEntry.unitPrice FROM OrderItem WHERE orderId =:orderId];
+        order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId];
     }
 }

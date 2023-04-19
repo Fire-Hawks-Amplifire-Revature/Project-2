@@ -35,10 +35,14 @@ public with sharing class ManageOrdersExtension {
 
         for(Product2 p : productsList){
             if(p.do_update_order__c){
-                for(PricebookEntry pE : pricebookEntries){
-                    if(pE.product2Id == p.Id){
-                        orderProductsToAdd.add(new OrderItem(orderId=orderId, product2Id=p.Id, quantity=p.number_to_add__c, unitPrice=10, pricebookEntryId=pE.Id));
+                if(p.number_to_add__c != null && p.number_to_add__c > 0){
+                    for(PricebookEntry pE : pricebookEntries){
+                        if(pE.product2Id == p.Id){
+                            orderProductsToAdd.add(new OrderItem(orderId=orderId, product2Id=p.Id, quantity=p.number_to_add__c, unitPrice=10, pricebookEntryId=pE.Id));
+                        }
                     }
+                } else {
+                    p.addError('To add a Product you must specify a Quantity!');
                 }
             }
         }
@@ -47,5 +51,6 @@ public with sharing class ManageOrdersExtension {
         
         resetUpdateFields(productsList);
         oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId];
+        order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId];
     }
 }

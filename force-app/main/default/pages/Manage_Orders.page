@@ -7,32 +7,31 @@
     </apex:pageBlock>
 
 
-
+    <h1>Manage Orders</h1>
     <apex:pageBlock >
-        <h1>Manage Orders:</h1>
-        <p>{!order.orderNumber}</p>
+        <h2>Current Order</h2>
         <apex:pageBlockSection>
-            <h2>Current Order</h2>
             <apex:pageBlockTable value="{!order}" var="o">
-                <apex:column value="{!o.orderNumber}"/>
-                <apex:column value="{!o.account.name}"/>
-                <apex:column value="{!o.totalAmount}"/>
-                <apex:column value="{!o.contract.contractNumber}"/>
-                <apex:column value="{!o.effectiveDate}"/>
-                <apex:column value="{!o.status}"/>
+                <apex:column headerValue="Order Number" value="{!o.orderNumber}"/>
+                <apex:column headerValue="Account Name" value="{!o.account.name}"/>
+                <apex:column headerValue="Total Amount" value="{!o.totalAmount}"/>
+                <apex:column headerValue="Contract Number" value="{!o.contract.contractNumber}"/>
+                <apex:column headerValue="Start Date" value="{!o.effectiveDate}"/>
+                <apex:column headerValue="Status" value="{!o.status}"/>
             </apex:pageBlockTable>
         </apex:pageBlockSection>
 
-        <apex:pageBlockSection>
             <h2>Current Products</h2>
-            <apex:pageBlockTable value="{!oldOrderProducts}" var="oop" id="oldOrderProducts">
-                <apex:column value="{!oop.Product2.name}"/>
-                <apex:column value="{!oop.quantity}"/>
+            <apex:pageBlockSection>
+                <apex:pageBlockTable value="{!oldOrderProducts}" var="oop" id="oldOrderProducts">
+                <apex:column headerValue="Product" value="{!oop.Product2.name}"/>
+                <apex:column headerValue="Quantity" value="{!oop.quantity}"/>
             </apex:pageBlockTable>
         </apex:pageBlockSection>
 
+        <h2>Add Products</h2>
+        <apex:pageMessages/>
         <apex:pageBlockSection>
-            <h2>Add Products</h2>
                 <apex:form>
                     <apex:pageBlockTable value="{!products}" var="p">
                         <apex:column headerValue="Product">

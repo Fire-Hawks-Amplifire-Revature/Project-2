@@ -33,7 +33,7 @@
                         <apex:inputField value="{!oop.do_update_order__c}"/>
                     </apex:column>
                     <apex:column value="{!oop.quantity}"/>
-                    <apex:column value="{!oop.PricebookEntry.unitPrice}"/>
+                    <apex:column headerValue="Unit Price" value="{!oop.PricebookEntry.unitPrice}"/>
                 </apex:pageBlockTable>
                 <apex:commandButton value="Remove Line Items" action="{!removeProducts}"/>
             </apex:form>
