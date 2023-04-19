@@ -7,32 +7,29 @@
     </apex:pageBlock>
 
 
-
+    <h1>Manage Orders:</h1>
     <apex:pageBlock>
-        <h1>Manage Orders:</h1>
+        <h2>Current Order</h2>
         <apex:pageBlockSection>
-            <apex:pageBlockSection>
-                <h2>Current Order</h2>
-                <apex:pageBlockTable value="{!order}" var="o">
-                    <apex:column value="{!o.orderNumber}"/>
-                    <apex:column value="{!o.account.name}"/>
-                    <apex:column value="{!o.totalAmount}"/>
-                    <apex:column value="{!o.contract.contractNumber}"/>
-                    <apex:column value="{!o.effectiveDate}"/>
-                    <apex:column value="{!o.status}"/>
-                </apex:pageBlockTable>
-            </apex:pageBlockSection>
+            <apex:pageBlockTable value="{!order}" var="o">
+                <apex:column headerValue="Order Number" value="{!o.orderNumber}"/>
+                <apex:column headerValue="Account" value="{!o.account.name}"/>
+                <apex:column headerValue="Amount" value="{!o.totalAmount}"/>
+                <apex:column headerValue="Contract Number" value="{!o.contract.contractNumber}"/>
+                <apex:column headerValue="Start Date" value="{!o.effectiveDate}"/>
+                <apex:column headerValue="Status" value="{!o.status}"/>
+            </apex:pageBlockTable>
         </apex:pageBlockSection>
 
         <apex:pageBlockSection>
             <apex:form>
                 <h2>Current Products</h2>
                 <apex:pageBlockTable value="{!oldOrderProducts}" var="oop" id="oldOrderProducts">
-                    <apex:column value="{!oop.Product2.name}"/>
+                    <apex:column headerValue="Product" value="{!oop.Product2.name}"/>
                     <apex:column headerValue="Remove Line Item">
                         <apex:inputField value="{!oop.do_update_order__c}"/>
                     </apex:column>
-                    <apex:column value="{!oop.quantity}"/>
+                    <apex:column headerValue="Quantity" value="{!oop.quantity}"/>
                     <apex:column headerValue="Unit Price" value="{!oop.PricebookEntry.unitPrice}"/>
                 </apex:pageBlockTable>
                 <apex:commandButton value="Remove Line Items" action="{!removeProducts}"/>

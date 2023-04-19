@@ -17,6 +17,10 @@ public with sharing class ManageOrdersExtension {
 
         order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId];
 
+        if(order.pricebook2Id == null){
+            order.addError('Select a pricebook for this order before adding products');
+        }
+
         oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId];
 
         controller.setPageSize(30);

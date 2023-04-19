@@ -14,7 +14,6 @@
         
             <apex:pageBlockSection>    
                 <apex:form>
-                    
                     <apex:pageBlockTable value="{!showOrders}" var="order" id="displayOrders">
                             <apex:column headerValue="Actions">
                                 <apex:commandLink value="Delete" action="{!deleteOrder}">
@@ -36,6 +35,9 @@
                             </apex:column>
                     </apex:pageBlockTable>
             </apex:form>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection>
+                <p>If you don't see your order here, make sure it has an associated pricebook.</p>
             </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:page>
