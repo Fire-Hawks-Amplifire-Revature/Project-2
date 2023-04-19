@@ -1,8 +1,8 @@
 <apex:page standardController="Order" extensions="CreateOrderExtension">
     <apex:pageBlock >
         <apex:pageBlockSection >
-          Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
-          Link: <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
+          <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
+          <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
        </apex:pageBlockSection>
     </apex:pageBlock>
 
