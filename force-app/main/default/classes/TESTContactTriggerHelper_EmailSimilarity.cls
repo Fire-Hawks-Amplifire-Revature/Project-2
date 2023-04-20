@@ -66,6 +66,29 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
     }
 
     @isTest
+    public static void positiveBulkUpdate(){
+        Integer numContacts = 3;
+        Account associatedAccount = [SELECT Id FROM Account WHERE name='Account 123'];
+        List<Contact> contacts = SamsDataFactory.makeUniqueAssociatedContacts(numContacts, associatedAccount.Id, 'Bulk Contact');
+        contacts = SamsDataFactory.addEmailToContacts(contacts, true);
+
+        insert contacts;
+
+        for(Contact c : contacts){
+            c.lastName = c.lastName + 'v2';
+        }
+
+        List<Database.SaveResult> srList = Database.update(contacts);
+        
+        for(Database.SaveResult result : srList){
+            System.assert(result.isSuccess());
+        }
+
+        List<Contact> checkContacts = [SELECT lastName FROM Contact WHERE accountId=:associatedAccount.Id AND lastName LIKE 'Bulk Contact%'];
+        System.assertEquals(numContacts, checkContacts.size());
+    }
+
+    @isTest
     public static void negativeBulkInsert(){
         Integer numContacts = 3;
         Account associatedAccount = [SELECT Id FROM Account WHERE name='Account 123'];
@@ -75,6 +98,26 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
 
         List<Database.SaveResult> srList = Database.insert(contacts, false);
         System.debug([SELECT email, lastName FROM Contact]);
+        
+        for(Database.SaveResult result : srList){
+            System.assert(!result.isSuccess());
+        }
+    }
+
+    @isTest
+    public static void negativeBulkUpdate(){
+        Integer numContacts = 3;
+        Account associatedAccount = [SELECT Id FROM Account WHERE name='Account 123'];
+        List<Contact> contacts = SamsDataFactory.makeUniqueAssociatedContacts(numContacts, associatedAccount.Id, 'Bulk Contact');
+        contacts = SamsDataFactory.addEmailToContacts(contacts, false);
+
+        insert contacts;
+
+        for(Contact c : contacts){
+            c.lastName = c.lastName + 'v2';
+        }
+
+        List<Database.SaveResult> srList = Database.update(contacts);
         
         for(Database.SaveResult result : srList){
             System.assert(!result.isSuccess());
