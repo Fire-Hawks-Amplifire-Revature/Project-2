@@ -1,10 +1,10 @@
 public with sharing class RemoveOrderProductsExtension {
-    private ApexPages.StandardSetController controller;
     public String orderId{get; private set;}
     public Order order{get; private set;}
     public List<OrderItem> oldOrderProducts{get; private set;}
     public List<OrderItem> orderProductsToDelete{get; private set;}
 
+    private ApexPages.StandardSetController controller;
 
     public RemoveOrderProductsExtension(ApexPages.StandardSetController ssc) {
         controller = ssc;
