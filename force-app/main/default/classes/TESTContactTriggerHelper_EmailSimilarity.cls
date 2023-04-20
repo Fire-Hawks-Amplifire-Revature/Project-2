@@ -6,7 +6,7 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
         insert associatedAccount;
         System.debug('associatedAccount: ' + associatedAccount);
 
-        Contact associatedContact = new Contact(accountId=associatedAccount.Id, firstName='Associated Test', lastName='Contact', email='test@positive.com');
+        Contact associatedContact = new Contact(accountId=associatedAccount.Id, firstName='Associated Test', lastName='Contact', email='test@positive.com', contactType__c='Service Technician');
         System.debug('associatedContact: ' + associatedContact);
         insert associatedContact;
         System.debug('Test');
@@ -14,7 +14,7 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
         // System.debug('Insert Contact Result: ' + result.isSuccess());
         // System.debug('associatedContact: ' + associatedContact);
 
-        Contact testContact = new Contact(accountId=associatedAccount.Id, firstName='Main Test', lastName='Contact', email='test@positive.com');
+        Contact testContact = new Contact(accountId=associatedAccount.Id, firstName='Main Test', lastName='Contact', email='test@positive.com', contactType__c='Service Technician');
         
         Test.startTest();
         insert testContact;

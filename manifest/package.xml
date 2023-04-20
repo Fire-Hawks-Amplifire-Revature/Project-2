@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
    <types>
-        <members>ContactTriggerHelper_EmailSimilarity</members>
         <members>TESTContactTriggerHelper_EmailSimilarity</members>
-        <!--<members>OrdersAndProductsController</members>
+        <!--
+        <members>ContactTriggerHelper_EmailSimilarity</members>
+        <members>OrdersAndProductsController</members>
         <members>AddOrderProductsExtension</members>
         <members>CreateOrderExtension</members>
-        <members>RemoveOrderProductsExtension</members>-->
+        <members>RemoveOrderProductsExtension</members>
+        -->
         <name>ApexClass</name>
     </types>
 <!--
