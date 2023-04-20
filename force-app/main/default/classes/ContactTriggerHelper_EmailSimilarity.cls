@@ -13,7 +13,7 @@ public with sharing class ContactTriggerHelper_EmailSimilarity {
             }
         }
         
-        List<Contact> associatedContacts = [SELECT accountId, email FROM Contact WHERE accountId IN :associatedAccountIds];
+        List<Contact> associatedContacts = [SELECT accountId, email FROM Contact WHERE accountId IN :associatedAccountIds WITH USER_MODE];
 
         if(associatedContacts.size() > 0){
             for(Contact associatedContact : associatedContacts){

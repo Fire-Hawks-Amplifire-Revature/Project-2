@@ -109,15 +109,13 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
         Integer numContacts = 3;
         Account associatedAccount = [SELECT Id FROM Account WHERE name='Account 123'];
         List<Contact> contacts = SamsDataFactory.makeUniqueAssociatedContacts(numContacts, associatedAccount.Id, 'Bulk Contact');
-        contacts = SamsDataFactory.addEmailToContacts(contacts, false);
+        contacts = SamsDataFactory.addEmailToContacts(contacts, true);
 
         insert contacts;
 
-        for(Contact c : contacts){
-            c.lastName = c.lastName + 'v2';
-        }
+        contacts = SamsDataFactory.addEmailToContacts(contacts, false);
 
-        List<Database.SaveResult> srList = Database.update(contacts);
+        List<Database.SaveResult> srList = Database.update(contacts, false);
         
         for(Database.SaveResult result : srList){
             System.assert(!result.isSuccess());
