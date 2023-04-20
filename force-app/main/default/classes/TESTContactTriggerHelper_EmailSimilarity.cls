@@ -10,7 +10,7 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
     }
 
     @isTest
-    public static void positiveSingleInsertTest(){
+    public static void positiveSingleInsert(){
         Account associatedAccount1 = [SELECT Id FROM Account WHERE name='Account 123'];
 
         Contact newContact = new Contact(accountId=associatedAccount1.Id, firstName='New Test', lastName='Contact', email='test@positive.com', contactType__c='Service Technician');
@@ -20,9 +20,7 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
     }
 
     @isTest
-    public static void positiveSingleUpdateTest(){
-        Account associatedAccount1 = [SELECT Id FROM Account WHERE name='Account 123'];
-        
+    public static void positiveSingleUpdate(){       
         Contact updateContact = [SELECT Id, email FROM Contact WHERE firstName='Main Test' AND lastName='Contact'];
         updateContact.description = 'I am a test contact.';
     
@@ -32,7 +30,7 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
     }
     
     @isTest
-    public static void negativeSingleInsertTest(){
+    public static void negativeSingleInsert(){
         Account associatedAccount1 = [SELECT Id FROM Account WHERE name='Account 123'];
 
         Contact negativeTestContact1 = new Contact(accountId=associatedAccount1.Id, firstName='Main Test', lastName='Contact', email='test@negative.com', contactType__c='Service Technician');
@@ -43,14 +41,43 @@ public with sharing class TESTContactTriggerHelper_EmailSimilarity {
     }
 
     @isTest
-    public static void negativeSingleUpdateTest(){
-        Account associatedAccount1 = [SELECT Id FROM Account WHERE name='Account 123'];
-        
+    public static void negativeSingleUpdate(){        
         Contact updateContact = [SELECT Id, email FROM Contact WHERE firstName='Main Test' AND lastName='Contact'];
         updateContact.email = 'test@negative.com';
     
         Database.saveResult sr =  Database.update(updateContact, false);
     
         System.assert(!sr.isSuccess());
+    }
+
+    @isTest
+    public static void positiveBulkInsert(){
+        Integer numContacts = 3;
+        Account associatedAccount = [SELECT Id FROM Account WHERE name='Account 123'];
+        List<Contact> contacts = SamsDataFactory.makeUniqueAssociatedContacts(numContacts, associatedAccount.Id, 'Bulk Contact');
+
+        contacts = SamsDataFactory.addEmailToContacts(contacts, true);
+
+        List<Database.SaveResult> srList = Database.insert(contacts);
+        
+        for(Database.SaveResult result : srList){
+            System.assert(result.isSuccess());
+        }
+    }
+
+    @isTest
+    public static void negativeBulkInsert(){
+        Integer numContacts = 3;
+        Account associatedAccount = [SELECT Id FROM Account WHERE name='Account 123'];
+        List<Contact> contacts = SamsDataFactory.makeUniqueAssociatedContacts(numContacts, associatedAccount.Id, 'Bulk Contact');
+
+        contacts = SamsDataFactory.addEmailToContacts(contacts, false);
+
+        List<Database.SaveResult> srList = Database.insert(contacts, false);
+        System.debug([SELECT email, lastName FROM Contact]);
+        
+        for(Database.SaveResult result : srList){
+            System.assert(!result.isSuccess());
+        }
     }
 }
