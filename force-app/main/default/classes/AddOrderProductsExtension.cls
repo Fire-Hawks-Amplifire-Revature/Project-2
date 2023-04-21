@@ -15,13 +15,13 @@ public with sharing class AddOrderProductsExtension {
         productsList = controller.getRecords();
         pricebookEntries = new List<PricebookEntry>();
 
-        order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId];
+        order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId WITH USER_MODE];
 
         if(order.pricebook2Id == null){
             order.addError('Select a pricebook for this order before adding products');
         }
 
-        oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId];
+        oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId WITH USER_MODE];
 
         controller.setPageSize(30);
     }
@@ -35,7 +35,7 @@ public with sharing class AddOrderProductsExtension {
 
     public void addProducts(){
         productsList = controller.getRecords();
-        pricebookEntries = [SELECT Id, pricebook2Id, product2Id FROM PricebookEntry WHERE pricebook2Id=:order.pricebook2Id];
+        pricebookEntries = [SELECT Id, pricebook2Id, product2Id FROM PricebookEntry WHERE pricebook2Id=:order.pricebook2Id WITH USER_MODE];
 
         for(Product2 p : productsList){
             if(p.do_update_order__c){
@@ -54,7 +54,7 @@ public with sharing class AddOrderProductsExtension {
         orderProductsToAdd = new List<OrderItem>();
         
         resetUpdateFields(productsList);
-        oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId];
-        order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId];
+        oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId  WITH USER_MODE];
+        order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId  WITH USER_MODE];
     }
 }
