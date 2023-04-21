@@ -8,9 +8,10 @@
 
     <apex:pageBlock >
         <h1>Create an Order</h1>
+        <apex:pageMessages></apex:pageMessages>
         
             <apex:form>
-                <apex:pageBlockSection >
+                <apex:pageBlockSection>
                     <apex:inputField value="{!order.accountId}" required="true"/>
                 </apex:pageBlockSection>
                 <apex:pageBlockSection >
