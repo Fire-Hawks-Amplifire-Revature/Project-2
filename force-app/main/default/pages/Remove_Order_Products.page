@@ -21,6 +21,8 @@
             </apex:pageBlockTable>
         </apex:pageBlockSection>
 
+        <apex:pageMessages></apex:pageMessages>
+
         <apex:pageBlockSection>
             <apex:form>
                 <h2>Current Products</h2>

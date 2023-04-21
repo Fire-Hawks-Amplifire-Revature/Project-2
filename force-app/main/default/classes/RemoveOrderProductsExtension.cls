@@ -14,15 +14,26 @@ public with sharing class RemoveOrderProductsExtension {
         orderProductsToDelete = new List<OrderItem>();
     }
 
-    public void removeProducts(){
+    public Pagereference removeProducts(){
         for(OrderItem oi : oldOrderProducts){
             if(oi.do_update_order__c == true){
                 orderProductsToDelete.add(oi);
             }
         }
-        delete orderProductsToDelete;
+
+        try {
+            delete orderProductsToDelete;
+        } catch(System.DmlException e) {
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.ERROR, 'This Line Item has already been deleted. Be careful not to double-click \"Remove Line Item\".'));
+            orderProductsToDelete = new List<OrderItem>();
+            oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c, PricebookEntry.unitPrice FROM OrderItem WHERE orderId =:orderId WITH USER_MODE];
+            order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId WITH USER_MODE];
+            return Page.Remove_Order_Products;
+        }
+
         orderProductsToDelete = new List<OrderItem>();
         oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c, PricebookEntry.unitPrice FROM OrderItem WHERE orderId =:orderId WITH USER_MODE];
         order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId WITH USER_MODE];
+        return Page.Remove_Order_Products;
     }
 }
