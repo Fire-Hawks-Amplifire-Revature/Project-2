@@ -9,6 +9,7 @@
     <apex:pageBlock >
         <apex:pageBlockSection >
             <h1>Orders</h1>
+            <apex:pageMessages></apex:pageMessages>
         </apex:pageBlockSection>
 
         
