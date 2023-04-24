@@ -3,8 +3,9 @@
    <types>
         <members>TESTContactTriggerHelper_EmailSimilarity</members>
         <members>SamsDataFactory</members>
-        <members>TEST_OrdersAndProducts</members>
-        <!--<members>ContactTriggerHelper_EmailSimilarity</members>
+        <members>TEST_AddOrderProducts</members>
+        <!--<members>TEST_OrdersAndProducts</members>
+        <members>ContactTriggerHelper_EmailSimilarity</members>
         <members>OrdersAndProductsController</members>
         <members>AddOrderProductsExtension</members>
         <members>CreateOrderExtension</members>
