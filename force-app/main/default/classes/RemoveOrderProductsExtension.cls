@@ -24,7 +24,7 @@ public with sharing class RemoveOrderProductsExtension {
         try {
             delete orderProductsToDelete;
         } catch(System.DmlException e) {
-            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.ERROR, 'This Line Item has already been deleted. Be careful not to double-click \"Remove Line Item\".'));
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.WARNING, 'This Line Item has already been deleted. Be careful not to double-click \"Remove Line Item\".'));
             orderProductsToDelete = new List<OrderItem>();
             oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c, PricebookEntry.unitPrice FROM OrderItem WHERE orderId =:orderId WITH USER_MODE];
             order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId WITH USER_MODE];
