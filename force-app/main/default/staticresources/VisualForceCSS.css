@@ -1,0 +1,32 @@
+
+
+#FBCLogo{
+    width: 250px;
+    height: 200px;
+    border:5pt solid purple;
+}
+
+#FBCLoga{
+    width: 250px;
+    height: 200px;
+    border:5pt solid blue;
+}
+
+.Flex_container{
+    display: flex;
+    align-items:center;
+    flex-direction:row;
+    justify-content:space-between;
+    width:100%;
+    border:5pt solid blue;    
+}
+
+#LinkPhoto{
+    font-size:12pt;
+    font: Red;
+}
+
+
+
+        
+    

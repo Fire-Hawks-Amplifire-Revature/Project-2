@@ -1,0 +1,83 @@
+<apex:page controller="AccountsLeadsControllers" showHeader="false">
+  	   
+         	<div class="Flex_container">
+        <apex:image id="FBCLogo" value="{!$Resource.FBCLogo}"/>
+        <apex:image id="FBCLoga" value="{!$Resource.FBCLogo}"/>
+         	</div>
+        <apex:stylesheet value="{!URLFOR($Resource.VisualForceCSS)}"></apex:stylesheet>
+    <nav>  
+        <apex:outputLink value="/apex/VFAccountLead">Create Records!</apex:outputLink>
+    </nav> 
+    <apex:pageMessages id="ThisMessage"></apex:pageMessages>       
+    <apex:form >   
+   		 <apex:pageBlock >
+    		<apex:pageBlockTable title="Account List" value="{!AccountList}" var="ac" id="MyTable2" rows="50">                                            
+                <apex:column headerValue="Account ID">
+                    <apex:outputField value="{!ac.id}"/>                    	                   
+                </apex:column>                
+                <apex:column headerValue="Account Name">
+                	<apex:outputField value="{!ac.Name}">
+                        <apex:inlineEditSupport showOnEdit="cake" event="ondblclick" resetFunction="ResetInlineEdit"/>
+                    </apex:outputField>
+                </apex:column>
+                
+                <apex:column headerValue="Account Phone"> 
+                    <apex:outputField value="{!ac.Phone}">
+                        <apex:inlineEditSupport showOnEdit="cake" event="ondblclick" resetFunction="ResetInlineEdit"/>
+                    </apex:outputField>
+                </apex:column>  
+                
+                <apex:column headerValue="Annual Revenue"> 
+                    <apex:outputField value="{!ac.AnnualRevenue}">
+                        <apex:inlineEditSupport showOnEdit="cake" event="ondblclick" resetFunction="ResetInlineEdit"/>
+                    </apex:outputField>
+                </apex:column>  
+                
+                <apex:column headerValue="Delete Records">           
+            <apex:commandButton action="{!delAccounts}" value="Delete🏌🏼‍♀️" id="CommandButton2" reRender="MyTable2, ThisMessage">
+                <apex:param name="ApexParami" value="{!ac.id}" assignTo="{!accountID}"/>
+            </apex:commandButton>                  
+                </apex:column>                
+            </apex:pageBlockTable>
+             <apex:commandButton value="Update 💫" action="{!updateAccount}"/>
+    	 </apex:pageBlock>
+       </apex:form>
+        
+   
+    <apex:form >   
+   		 <apex:pageBlock >
+    		<apex:pageBlockTable title="Lead List" value="{!leadList}" var="li" id="MyTable1" rows="50">                                            
+                <apex:column headerValue="Lead Id">
+                   <apex:outputfield value="{!li.id}">     
+                    </apex:outputfield>
+                </apex:column>               
+                <apex:column headerValue="First Name">
+                   <apex:outputfield value="{!li.firstName}">
+                <apex:inlineEditSupport showOnEdit="cake" event="ondblclick"/> 
+                    </apex:outputfield>
+                </apex:column>
+                <apex:column headerValue="Last Name">
+                   <apex:outputfield value="{!li.lastName}">
+                <apex:inlineEditSupport showOnEdit="cake" event="ondblclick"/> 
+                    </apex:outputfield>
+                </apex:column>
+                <apex:column headerValue="Email">
+                   <apex:outputfield value="{!li.Email}">
+                      <apex:inlineEditSupport showOnEdit="cake" event="ondblclick"/>  
+                   </apex:outputfield>
+                </apex:column> 
+                <apex:column headerValue="Company">
+                   <apex:outputfield value="{!li.company}">
+                      <apex:inlineEditSupport showOnEdit="cake" event="ondblclick"/>  
+                   </apex:outputfield>
+                </apex:column>     
+               <apex:column headerValue="Delete Records">
+               <apex:commandButton action="{!delLeads}" value="Delete 💃🏽" id="CommandButton1" reRender="MyTable1, ThisMessage">
+                   <apex:param name="ApexParama" value="{!li.id}" assignTo="{!leadID}"/> 
+               </apex:commandButton>
+                </apex:column>                  
+             </apex:pageBlockTable>
+            <apex:commandButton value="Update 💫" action="{!updateLead}"/>
+    	 </apex:pageBlock>
+     </apex:form>
+</apex:page>
