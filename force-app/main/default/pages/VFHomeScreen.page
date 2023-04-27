@@ -1,0 +1,37 @@
+<apex:page standardStylesheets="false" >
+    
+    <div id="ContainerforHomePage">
+    <apex:image id="FBCLogas" value="{!$Resource.FBCLogo}"/> 
+     </div>
+    <p>
+        Disclaimer: You must have rights to access records within this app to continue
+    </p>
+    
+    <style type="text/css">
+        
+        p{
+        	font-size: 25pt;
+        	font-color:blue;
+        
+        }
+         
+        #ContainerforHomePage{
+        	display: flex;
+    		align-items:center;
+    		flex-direction:row;
+    		justify-content:space-around;             
+       		
+        }
+        
+        #FBCLogas{
+        	width: 200%; 
+       		height:200%;
+       	    border: 2pt solid blue;
+        }
+    
+    
+    
+    
+    
+    </style>
+</apex:page>

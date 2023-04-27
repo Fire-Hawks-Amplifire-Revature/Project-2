@@ -1,0 +1,59 @@
+<apex:page standardController="Product2" extensions="ManageOrdersExtension" recordSetVar="products">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+          Link: <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
+          Link: <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
+       </apex:pageBlockSection>
+    </apex:pageBlock>
+
+
+    <h1>Manage Orders</h1>
+    <apex:pageBlock >
+        <h2>Current Order</h2>
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!order}" var="o">
+                <apex:column headerValue="Order Number" value="{!o.orderNumber}"/>
+                <apex:column headerValue="Account Name" value="{!o.account.name}"/>
+                <apex:column headerValue="Total Amount" value="{!o.totalAmount}"/>
+                <apex:column headerValue="Contract Number" value="{!o.contract.contractNumber}"/>
+                <apex:column headerValue="Start Date" value="{!o.effectiveDate}"/>
+                <apex:column headerValue="Status" value="{!o.status}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+
+            <h2>Current Products</h2>
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!oldOrderProducts}" var="oop" id="oldOrderProducts">
+                <apex:column headerValue="Product" value="{!oop.Product2.name}"/>
+                <apex:column headerValue="Quantity" value="{!oop.quantity}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+
+        <h2>Add Products</h2>
+        <apex:pageMessages />
+        <apex:pageBlockSection >
+                <apex:form >
+                    <apex:pageBlockTable value="{!products}" var="p">
+                        <apex:column headerValue="Product">
+                            <apex:outputField value="{!p.name}"/>
+                        </apex:column>
+                        <apex:column headerValue="Add to Order">
+                            <apex:inputField value="{!p.Do_Update_Order__c}"/>
+                        </apex:column>
+                        <apex:column headerValue="Quantity">
+                            <apex:inputField value="{!p.Number_To_Add__c}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                    <apex:commandButton value="Add to Order" action="{!addProducts}">
+                        <apex:actionSupport event="onclick" reRender="oldOrderProducts"/>
+                    </apex:commandButton>
+                </apex:form>
+            </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:pageBlock >
+        <apex:outputLink value="apex/Remove_Order_Products">
+        Remove Products
+        <apex:param value="{!order.Id}" name="orderId"/>
+    </apex:outputLink>
+    </apex:pageBlock>
+</apex:page>

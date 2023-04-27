@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_To_Order__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used to add products to orders on visualforce pages. When this checkbox is checked this product will be added to an order.</description>
+    <externalId>false</externalId>
+    <label>Add To Order</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

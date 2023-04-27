@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+<<<<<<< HEAD
+    <availableInTouch>true</availableInTouch>
+=======
+    <availableInTouch>false</availableInTouch>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <label>Create_Orders</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>20</minorNumber>
+        <namespace>sf_chttr_apps</namespace>
+    </packageVersions>
+</ApexPage>

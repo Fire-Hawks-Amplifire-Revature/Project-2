@@ -1,0 +1,37 @@
+<apex:page controller="oppCreateExtension">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <h2>
+            <apex:outputLink value="/apex/Opportunity_Home" style="font-weight:bold">List of Opportunities</apex:outputLink>
+            </h2>
+        
+        </apex:pageBlockSection>
+        <apex:form id="formed">
+        <apex:pageBlockSection >
+            
+            <apex:inputfield value="{!oppor.name}"/>
+        </apex:pageBlockSection><apex:pageBlockSection >
+            <apex:inputfield value="{!oppor.accountid}"/>
+        </apex:pageBlockSection><apex:pageBlockSection >
+            <apex:inputfield value="{!oppor.amount}"/>
+        </apex:pageBlockSection><apex:pageBlockSection >
+            <apex:inputfield value="{!oppor.closedate}"/>
+        </apex:pageBlockSection><apex:pageBlockSection >
+            <apex:inputfield value="{!oppor.stageName}" id="theHiddenInput"/>
+        </apex:pageBlockSection><apex:pageBlockSection >
+            <apex:commandButton action="{!saveNewOpp}" value="Create New Opportunity"/>
+        </apex:pageBlockSection>
+    </apex:form>
+        <apex:pageBlockSection >
+           
+
+            
+            
+
+    
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+
+
+</apex:page>

@@ -1,0 +1,70 @@
+<apex:page StandardController="Opportunity" recordSetVar="opp" extensions="oppHomeExtension" >
+    <apex:form >   
+<apex:pageBlock >
+        <apex:pageBlockSection >
+           
+            <h2>
+            <apex:outputLink value="/apex/Opportunity_Create" style="font-weight:bold">Create New Opportunity</apex:outputLink>
+            </h2>
+        </apex:pageBlockSection>
+        
+        
+            <apex:pageBlockSection >
+            <apex:selectList value="{!filterId}" size="1">
+            <apex:actionSupport event="onchange" reRender="list"/>
+            <apex:selectOptions value="{!listviewoptions}"/>
+        </apex:selectList>
+            </apex:pageBlockSection>
+
+
+        <apex:pageBlockSection >
+
+
+            <apex:pageBlockTable value="{!opp}" var="oppor" id="list2">
+                   <!-- <apex:column>
+                        <apex:inputCheckbox value="{!oppor.updat}"></apex:inputCheckbox>
+                    </apex:column>-->
+                    <apex:column >
+
+
+                        <apex:commandLink action="{!deleteThatOpp}" value="Delete This Record">
+                            
+                            <apex:param value="{!oppor.Id}" assignTo="{!myOpp}" name="oppID"/>
+                            
+                        </apex:commandLink>
+
+
+                    </apex:column>
+                    <apex:column headerValue="Opportunity Name">
+                        <apex:outputField value="{!oppor.name}">
+                           <apex:inlineEditSupport showOnEdit="updateBtn"/>
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column value="{!oppor.amount}"/>
+                    <apex:column value="{!oppor.accountid}"/>
+                    
+                    <apex:column >
+                        
+                    </apex:column>
+            </apex:pageBlockTable>
+
+
+
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection >
+            
+            <apex:commandButton value="previous" action="{!previous}"/>
+            <apex:commandButton value="next" action="{!next}"/>
+            <apex:commandButton value="Update Records" action="{!quicksave}" id="updateBtn"/>
+           <!--<apex:commandButton value="Delete Selected Records" action="{!deleteThatOpp}"   id="deleteBtn"/>-->
+        
+        </apex:pageBlockSection>
+        
+    
+   
+    </apex:pageBlock>
+
+
+</apex:form>
+</apex:page>

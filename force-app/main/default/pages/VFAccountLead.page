@@ -1,0 +1,42 @@
+<apex:page controller="AccountsLeadsControllers" showHeader="false">	
+    
+    		<div class="Flex_container">
+        <apex:image id="FBCLogo" value="{!$Resource.FBCLogo}"/> 
+    	<apex:image id="FBCLoga" value="{!$Resource.FBCLogo}"/>
+         	</div>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.VisualForceCSS)}"></apex:stylesheet>
+    <nav>  
+        <apex:outputLink value="/apex/VFAccountsLeadPage2">Update OR Delete Current Records!</apex:outputLink>
+    </nav> 
+    <apex:pageMessages ></apex:pageMessages>
+    
+    <apex:pageBlock title="Hello {!$User.FirstName}!">
+        Input the Name of the desired User or Account that you wish to add - remember to add the required details!
+    </apex:pageBlock>
+    
+    <apex:form >   
+   		 <apex:pageBlock >            
+    		<apex:pageBlockSection columns="1">
+                <apex:inputField value="{!account.Name}"></apex:inputField>
+                <apex:inputField value="{!account.Phone}"></apex:inputField>
+                <apex:inputField value="{!account.AnnualRevenue}"></apex:inputField>
+                <apex:inputField value="{!account.Website}"></apex:inputField>
+        	</apex:pageBlockSection>
+    	</apex:pageBlock>
+        <apex:commandButton value="Save Account" action="{!saveAccounts}"/>               
+    </apex:form>   
+
+    <apex:form >   
+   		 <apex:pageBlock >            
+    		<apex:pageBlockSection columns="1" >
+                <apex:inputField value="{!lead.FirstName}"></apex:inputField>
+                <apex:inputField value="{!lead.LastName}"></apex:inputField>
+                <apex:inputField value="{!lead.Phone}"></apex:inputField>
+                <apex:inputField value="{!lead.Email}"></apex:inputField>
+                <apex:inputField value="{!lead.Company}"></apex:inputField>
+        	</apex:pageBlockSection>
+    	</apex:pageBlock>
+        <apex:commandButton value="Save Lead" action="{!saveLeads}"/>
+    </apex:form> 
+</apex:page>

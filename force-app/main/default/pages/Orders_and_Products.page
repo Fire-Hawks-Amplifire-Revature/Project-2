@@ -1,0 +1,60 @@
+<apex:page controller="OrdersAndProductsController">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+          <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
+          <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
+       </apex:pageBlockSection>
+      </apex:pageBlock>
+
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <h1>Orders</h1>
+<<<<<<< HEAD
+            <apex:pageMessages ></apex:pageMessages>
+        </apex:pageBlockSection>
+
+        
+            <apex:pageBlockSection >    
+                <apex:form >
+=======
+            <apex:pageMessages></apex:pageMessages>
+        </apex:pageBlockSection>
+
+        
+            <apex:pageBlockSection>    
+                <apex:form>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
+                    <apex:pageBlockTable value="{!showOrders}" var="order" id="displayOrders">
+                            <apex:column headerValue="Actions">
+                                <apex:commandLink value="Delete" action="{!deleteOrder}">
+                                    <apex:actionSupport event="onclick" reRender="displayOrders"/>
+                                    <apex:param value="{!order.Id}" name="orderId"/>
+                                </apex:commandLink>
+                                &nbsp;
+                                <apex:outputLink value="apex/Add_Order_Products">
+                                    Manage Products
+                                    <apex:param value="{!order.Id}" name="orderId"/>
+                                </apex:outputLink>
+                            </apex:column>
+                            <apex:column headerValue="Order Number" value="{!order.orderNumber}"/>
+                            <apex:column headerValue="Amount" value="{!order.totalAmount}"/>
+                            <apex:column headerValue="Status">
+                                <apex:outputField value="{!order.status}">
+<<<<<<< HEAD
+=======
+                                    <apex:inlineEditSupport/>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
+                                </apex:outputField>
+                            </apex:column>
+                    </apex:pageBlockTable>
+            </apex:form>
+            </apex:pageBlockSection>
+<<<<<<< HEAD
+            <apex:pageBlockSection >
+=======
+            <apex:pageBlockSection>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
+                <p>If you don't see your order here, make sure it has an associated pricebook.</p>
+            </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

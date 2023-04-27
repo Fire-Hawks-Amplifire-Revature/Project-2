@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AVG_Opportunity_Amount__c</fullName>
+    <externalId>false</externalId>
+    <formula>SUM_Amount_of_Opportunities__c / Count_Opportunities_Related__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>(AVG) of Opportunity Amounts</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Currency</type>
+</CustomField>

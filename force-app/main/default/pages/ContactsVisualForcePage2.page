@@ -1,0 +1,92 @@
+<apex:page controller="CustomControllerforContacts" showHeader="false">
+            
+    	<div class="Flex_container">
+    <apex:image id="FBCLogo" value="{!$Resource.FBCLogo}"/>
+    <apex:image id="FBCLoga" value="{!$Resource.FBCLogo}"/>
+        </div>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.VisualForceCSS)}"></apex:stylesheet>
+    
+    <nav>
+        <apex:outputLink id="LinkPhoto"  value="/apex/ContactsVisualForce">Create/View Records</apex:outputLink>
+    </nav> 
+   
+    
+    <apex:pageMessages id="ThisPageMessage"></apex:pageMessages>
+    
+      <apex:form >   
+         <apex:pageBlock >
+            <apex:pageBlockTable title="My Contact List" value="{!customerAccList}" var="app" id="MyTable2" rows="50">               
+                <apex:column headerValue="Contact ID">
+                    <apex:outputField value="{!app.id}">
+                        <apex:inlineEditSupport resetFunction="Reset"/>
+                    </apex:outputField>
+                </apex:column>
+                <apex:column headerValue="First Name">
+                    <apex:outputField value="{!app.FirstName}">
+                        <apex:inlineEditSupport resetFunction="Reset"/>
+                    </apex:outputField>
+                </apex:column>               
+                <apex:column headerValue="Last Name">
+                    <apex:outputField value="{!app.LastName}">
+                        <apex:inlineEditSupport resetFunction="Reset"/>
+                    </apex:outputField>
+                </apex:column>
+                <apex:column headerValue="Phone Number">
+                    <apex:outputField value="{!app.Phone}">
+                        <apex:inlineEditSupport resetFunction="Reset"/>
+                    </apex:outputField>
+                </apex:column>
+                <apex:column headerValue="Contact Type">
+                    <apex:outputField value="{!app.ContactType__c}">
+                        <apex:inlineEditSupport resetFunction="Reset"/>
+                    </apex:outputField>
+                </apex:column>
+                <apex:column headerValue="Delete Records">
+            <apex:commandLink action="{!delRecords}" value="Delete Me!" id="CommandButton2" reRender="MyTable2, ThisPageMessage">
+                <apex:param name="ApexParam" value="{!app.id}" assignTo="{!contactID}"/>
+            </apex:commandLink>
+                </apex:column> 
+              </apex:pageBlockTable>             
+            <apex:commandButton value="Update Me! 💫" action="{!updateCustomerAccs}"></apex:commandButton>
+         </apex:pageBlock>
+       </apex:form>
+    
+    <apex:form >   
+         <apex:pageBlock >
+            <apex:pageBlockTable title="My Contact List" value="{!serviceTechnicianList}" var="papp" id="MyTable1" rows="50">           
+            <apex:column headerValue="Contact ID">
+                <apex:outputField value="{!papp.id}">
+                    <apex:inlineEditSupport resetFunction="Reset"/>
+                </apex:outputField>      
+            </apex:column>
+            <apex:column headerValue="First Name">
+                <apex:outputField value="{!papp.FirstName}">
+                    <apex:inlineEditSupport resetFunction="Reset"/>
+                </apex:outputField>
+            </apex:column>           
+            <apex:column headerValue="Last Name">
+                <apex:outputField value="{!papp.LastName}">
+                    <apex:inlineEditSupport resetFunction="Reset"/>
+                </apex:outputField>
+            </apex:column>
+            <apex:column headerValue="Phone">
+                <apex:outputField value="{!papp.Phone}">
+                    <apex:inlineEditSupport resetFunction="Reset"/>
+                </apex:outputField>
+                </apex:column>  
+            <apex:column headerValue="Contact Type">
+                <apex:outputField value="{!papp.ContactType__c}">
+                    <apex:inlineEditSupport resetFunction="Reset"/>
+                </apex:outputField>
+            </apex:column>                           
+                <apex:column headerValue="Delete Records">
+               <apex:commandLink action="{!delRecords}" value="Delete Me!" id="CommandButton1" reRender="MyTable1, ThisPageMessage">
+                   <apex:param name="ApexParam" value="{!papp.id}" assignTo="{!contactID}"/> 
+               </apex:commandLink>
+                </apex:column>
+             </apex:pageBlockTable>
+             <apex:commandButton value="Update Me! 💫" action="{!updateServiceTechs}"></apex:commandButton>
+         </apex:pageBlock>
+     </apex:form>
+    </apex:page>

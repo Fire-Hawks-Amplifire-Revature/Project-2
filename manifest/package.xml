@@ -1,40 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-<!--
-    <types>
-        <members>*</members>
+<<<<<<< HEAD
+
+    
+
+=======
+   <types>
+        <members>TESTContactTriggerHelper_EmailSimilarity</members>
+        <members>SamsDataFactory</members>
+        <members>TEST_AddOrderProducts</members>
+        <!--<members>TEST_OrdersAndProducts</members>
+        <members>ContactTriggerHelper_EmailSimilarity</members>
+        <members>OrdersAndProductsController</members>
+        <members>AddOrderProductsExtension</members>
+        <members>CreateOrderExtension</members>
+        <members>RemoveOrderProductsExtension</members>-->
         <name>ApexClass</name>
     </types>
+<!--
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
     <types>
         <members>*</members>
         <name>ApexComponent</name>
     </types>
+<<<<<<< HEAD
+
     <types>
+    
         <members>*</members>
         <name>ApexPage</name>
     </types>
+
+=======
+-->
     <types>
+        <!--<members>Orders_and_Products</members>
+        <members>Create_Orders</members>
+        <members>Add_Order_Products</members>
+        <members>Remove_Order_Products</members>-->
+        <name>ApexPage</name>
+    </types>
+<!--
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+   <types>
         <members>*</members>
         <name>ApexTestSuite</name>
     </types>
-    -->
+   <types>
+        <members>*</members>
+        <members>Product2</members>
+        <members>Account</members>
+        <members>Contact</members>
+        <members>WorkOrder</members>
+        <members>Lead</members>
+        <members>Opportunity</members>
+        <members>OrderItem</members>
+
+        <!-- <members> </members> -->
+        
+        <name>CustomObject</name>
+    </types>
+   <types>
+    <members>*</members>
+    <name>CustomField</name>
+  </types>
+<!--
     <types>
-        <members>ContactTrigger</members>
+<<<<<<< HEAD
+    <members>*</members>
+    <name><name>
+    </types>
+--> <!--
+    <types>
+    <members>*</members>
+    <name><name>
+    </types>
+    -->
+   <types>
+        <members>*</members>
+=======
+        <!--<members>ContactTrigger</members>-->
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
         <name>ApexTrigger</name>
     </types>
-    <!--
+    
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
     </types>
+    
     <types>
         <members>*</members>
         <name>LightningComponentBundle</name>
     </types>
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
-    </types>
-    -->
-    <version>56.0</version>
+
+  <types>
+    <members>*</members>
+    <name>StaticResource</name>
+  </types>
+    
+    <version>57.0</version>
 </Package>
