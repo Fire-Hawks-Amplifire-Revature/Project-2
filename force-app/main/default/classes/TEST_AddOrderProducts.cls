@@ -1,5 +1,6 @@
 @isTest
 public with sharing class TEST_AddOrderProducts {
+<<<<<<< HEAD
     @TestSetup
     static void makeData(){
         Account acc = new Account(name = 'Test Account');
@@ -18,10 +19,13 @@ public with sharing class TEST_AddOrderProducts {
         insert pEntry;
     }
 
+=======
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
     @isTest
     public static void addProduct(){
         Pagereference pr = Page.Add_Order_Products;
         Test.setCurrentPage(pr);
+<<<<<<< HEAD
 
         AddOrderProductsController controller = new AddOrderProductsController();
 
@@ -32,5 +36,11 @@ public with sharing class TEST_AddOrderProducts {
 
         // Integer checkOrderItems = [SELECT COUNT() FROM OrderItem WHERE orderId = order.id];
         // System.assertEquals(checkOrderItems, 1);
+=======
+        Database.QueryLocator q = Database.getQueryLocator([SELECT Name FROM Product2]);
+
+        ApexPages.StandardSetController ssc = ApexPages.StandardSetController(q);
+        AddOrderProductsExtension controller = new AddOrderProductsExtension(ssc);
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
     }
 }

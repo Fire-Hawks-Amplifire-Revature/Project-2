@@ -8,10 +8,17 @@
 
     <apex:pageBlock >
         <h1>Create an Order</h1>
+<<<<<<< HEAD
         <apex:pageMessages ></apex:pageMessages>
         
             <apex:form >
                 <apex:pageBlockSection >
+=======
+        <apex:pageMessages></apex:pageMessages>
+        
+            <apex:form>
+                <apex:pageBlockSection>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                     <apex:inputField value="{!order.accountId}" required="true"/>
                 </apex:pageBlockSection>
                 <apex:pageBlockSection >
@@ -23,7 +30,11 @@
                 <apex:pageBlockSection >
                     <apex:inputField value="{!order.status}" required="true"/>
                 </apex:pageBlockSection>
+<<<<<<< HEAD
                 <apex:pageBlockSection >
+=======
+                <apex:pageBlockSection>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                     <apex:inputField value="{!order.pricebook2Id}" required="true"/>
                 </apex:pageBlockSection>
                 <apex:commandButton value="Create and Add Products" action="{!customSave}"/>

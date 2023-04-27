@@ -10,7 +10,11 @@
     <h1>Manage Orders</h1>
     <apex:pageBlock >
         <h2>Current Order</h2>
+<<<<<<< HEAD
         <apex:pageBlockSection >
+=======
+        <apex:pageBlockSection>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
             <apex:pageBlockTable value="{!order}" var="o">
                 <apex:column headerValue="Order Number" value="{!o.orderNumber}"/>
                 <apex:column headerValue="Account Name" value="{!o.account.name}"/>
@@ -22,7 +26,11 @@
         </apex:pageBlockSection>
 
             <h2>Current Products</h2>
+<<<<<<< HEAD
             <apex:pageBlockSection >
+=======
+            <apex:pageBlockSection>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                 <apex:pageBlockTable value="{!oldOrderProducts}" var="oop" id="oldOrderProducts">
                 <apex:column headerValue="Product" value="{!oop.Product2.name}"/>
                 <apex:column headerValue="Quantity" value="{!oop.quantity}"/>
@@ -30,18 +38,31 @@
         </apex:pageBlockSection>
 
         <h2>Add Products</h2>
+<<<<<<< HEAD
         <apex:pageMessages />
         <apex:pageBlockSection >
                 <apex:form >
+=======
+        <apex:pageMessages/>
+        <apex:pageBlockSection>
+                <apex:form>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                     <apex:pageBlockTable value="{!products}" var="p">
                         <apex:column headerValue="Product">
                             <apex:outputField value="{!p.name}"/>
                         </apex:column>
                         <apex:column headerValue="Add to Order">
+<<<<<<< HEAD
                             <apex:inputField value="{!p.Do_Update_Order__c}"/>
                         </apex:column>
                         <apex:column headerValue="Quantity">
                             <apex:inputField value="{!p.Number_To_Add__c}"/>
+=======
+                            <apex:inputField value="{!p.do_update_order__c}"/>
+                        </apex:column>
+                        <apex:column headerValue="Quantity">
+                            <apex:inputField value="{!p.number_to_add__c}"/>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                         </apex:column>
                     </apex:pageBlockTable>
                     <apex:commandButton value="Add to Order" action="{!addProducts}">
@@ -50,7 +71,11 @@
                 </apex:form>
             </apex:pageBlockSection>
     </apex:pageBlock>
+<<<<<<< HEAD
     <apex:pageBlock >
+=======
+    <apex:pageBlock>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
         <apex:outputLink value="apex/Remove_Order_Products">
         Remove Products
         <apex:param value="{!order.Id}" name="orderId"/>

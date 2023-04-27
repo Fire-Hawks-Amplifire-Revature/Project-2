@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>56.0</apiVersion>
     <availableInTouch>false</availableInTouch>
@@ -10,3 +11,9 @@
         <namespace>sf_chttr_apps</namespace>
     </packageVersions>
 </ApexPage>
+=======
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata"> 
+    <apiVersion>56.0</apiVersion>
+    <label>Add_Order_Products</label>
+</ApexPage>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff

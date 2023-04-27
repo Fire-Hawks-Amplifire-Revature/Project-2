@@ -57,4 +57,8 @@ public with sharing class AddOrderProductsExtension {
         oldOrderProducts = [SELECT Product2.name, quantity, do_update_order__c FROM OrderItem WHERE orderId = :orderId  WITH USER_MODE];
         order = [SELECT orderNumber, pricebook2Id, Account.name, Contract.contractNumber, effectiveDate, totalAmount, status FROM Order WHERE Id = :orderId  WITH USER_MODE];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff

@@ -1,5 +1,9 @@
 <apex:page standardController="Order" extensions="RemoveOrderProductsExtension" recordSetVar="orders">
+<<<<<<< HEAD
     <apex:pageBlock >
+=======
+    <apex:pageBlock>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
         <apex:pageBlockSection >
           <apex:outputLink value="apex/Orders_and_Products">Home</apex:outputLink>
           <apex:outputLink value="apex/Create_Orders">Create Orders</apex:outputLink>
@@ -8,9 +12,15 @@
 
 
     <h1>Manage Orders:</h1>
+<<<<<<< HEAD
     <apex:pageBlock >
         <h2>Current Order</h2>
         <apex:pageBlockSection >
+=======
+    <apex:pageBlock>
+        <h2>Current Order</h2>
+        <apex:pageBlockSection>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
             <apex:pageBlockTable value="{!order}" var="o">
                 <apex:column headerValue="Order Number" value="{!o.orderNumber}"/>
                 <apex:column headerValue="Account" value="{!o.account.name}"/>
@@ -21,15 +31,26 @@
             </apex:pageBlockTable>
         </apex:pageBlockSection>
 
+<<<<<<< HEAD
         <apex:pageMessages ></apex:pageMessages>
 
         <apex:pageBlockSection >
             <apex:form >
+=======
+        <apex:pageMessages></apex:pageMessages>
+
+        <apex:pageBlockSection>
+            <apex:form>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                 <h2>Current Products</h2>
                 <apex:pageBlockTable value="{!oldOrderProducts}" var="oop" id="oldOrderProducts">
                     <apex:column headerValue="Product" value="{!oop.Product2.name}"/>
                     <apex:column headerValue="Remove Line Item">
+<<<<<<< HEAD
                         <apex:inputField value="{!oop.Do_Update_Order__c}"/>
+=======
+                        <apex:inputField value="{!oop.do_update_order__c}"/>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                     </apex:column>
                     <apex:column headerValue="Quantity" value="{!oop.quantity}"/>
                     <apex:column headerValue="Unit Price" value="{!oop.PricebookEntry.unitPrice}"/>
@@ -38,7 +59,11 @@
             </apex:form>
         </apex:pageBlockSection>
     </apex:pageBlock>
+<<<<<<< HEAD
     <apex:pageBlock >
+=======
+    <apex:pageBlock>
+>>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
         <apex:outputLink value="apex/Add_Order_Products">
         Add Products
         <apex:param value="{!order.Id}" name="orderId"/>
