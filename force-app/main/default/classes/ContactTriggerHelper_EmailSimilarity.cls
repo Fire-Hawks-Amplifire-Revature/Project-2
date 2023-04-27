@@ -17,7 +17,6 @@ public with sharing class ContactTriggerHelper_EmailSimilarity {
 
         if(associatedContacts.size() > 0){
             for(Contact associatedContact : associatedContacts){
-<<<<<<< HEAD
                 if(associatedContact.email != null){
                     String oldContactDomain = associatedContact.email.substringAfter('@');
                     for(Contact c : contacts){
@@ -26,14 +25,6 @@ public with sharing class ContactTriggerHelper_EmailSimilarity {
                             if(oldContactDomain != triggerContactDomain){
                                 c.addError('Invalid Email Domain - Make sure your email domain matches other contacts associated with the account');
                             }
-=======
-                String oldContactDomain = associatedContact.email.substringAfter('@');
-                for(Contact c : contacts){
-                    if(c.accountId == associatedContact.accountId  && c != associatedContact){
-                        String triggerContactDomain = c.email.substringAfter('@');
-                        if(oldContactDomain != triggerContactDomain){
-                            c.addError('Invalid Email Domain - Make sure your email domain matches other contacts associated with the account');
->>>>>>> 03ec958a6d0cbf58670c907af1535623bd62c4ff
                         }
                     }
                 }
